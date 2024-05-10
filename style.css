@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black; /* Define o fundo como preto */
+    overflow: hidden; /* Esconde o que passar do limite da tela */
+}
+
+.container {
+    font-size: 10px; /* Define o tamanho da letra */
+    width: 40em;
+    height: 40em;
+    position: relative; /* Posição relativa em relação ao pai */
+}
+
+.sun {
+    position: absolute; /* Posição absoluta em relação ao pai */
+    top: 15em; /* Posição do topo em relação ao pai */
+    left: 15em; /* Posição da esquerda em relação ao pai */
+    width: 10em; /* Largura */
+    height: 10em; /* Altura */
+    background-color: yellow; /* Cor amarela para o sol */
+    border-radius: 50%; /* Formato de círculo */
+    box-shadow: 0 0 3em white; /* Sombra para efeito de brilho */
+}
+
+.earth,
+.moon {
+    position: absolute; /* Posição absoluta em relação ao pai */
+    border-style: solid; /* Estilo de borda */
+    border-color: white transparent transparent transparent; /* Cor da borda */
+    border-width: 0.1em 0.1em 0 0; /* Tamanho da borda */
+    border-radius: 50%; /* Formato de círculo */
+}
+
+.earth {
+    top: 5em; /* Posição do topo em relação ao pai */
+    left: 5em; /* Posição da esquerda em relação ao pai */
+    width: 30em; /* Largura */
+    height: 30em; /* Altura */
+    animation: orbit 36.5s linear infinite; /* Animação de órbita para a Terra */
+}
+
+.moon {
+    top: 0; /* Posição do topo em relação ao pai */
+    right: 0; /* Posição da direita em relação ao pai */
+    width: 8em; /* Largura */
+    height: 8em; /* Altura */
+    animation: orbit 2.7s linear infinite; /* Animação de órbita para a Lua */
+}
+
+.earth::before,
+.moon::before {
+    content: ""; /* Adiciona conteúdo antes dos elementos */
+    position: absolute; /* Posição absoluta em relação ao pai */
+    border-radius: 50%; /* Formato de círculo */
+}
+
+.earth::before {
+    top: 2.8em; /* Posição do topo em relação ao pai */
+    right: 2.8em; /* Posição da direita em relação ao pai */
+    width: 3em; /* Largura */
+    height: 3em; /* Altura */
+    background-color: aqua; /* Cor azul para representar a atmosfera */
+}
+
+.moon::before {
+    top: 0.8em; /* Posição do topo em relação ao pai */
+    right: 0.2em; /* Posição da direita em relação ao pai */
+    width: 1.2em; /* Largura */
+    height: 1.2em; /* Altura */
+    background-color: silver; /* Cor prateada para representar a atmosfera lunar */
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg); /* Rotação completa */
+    }
+}
